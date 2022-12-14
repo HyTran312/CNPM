@@ -1,0 +1,42 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+<h1 class="text-center text-danger">SCHEDULE OF EXAMINATION</h1>
+
+<div class="row">
+    <div class="col-md-8 col-sm-12">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Full name</th>
+                <th>Gender</th>
+                <th>Date of birth</th>
+                <th>Address</th>
+                <th>Phone number</th>
+            </tr>
+            {% for p in patients %}
+            <tr>
+                <td>{{ p[0] }}</td>
+                <td>{{ p[1] }}</td>
+                <td>{{ p[2] }}</td>
+                <td>{{ p[3] }}</td>
+                <td>{{ p[4] }}</td>
+                <td>{{ p[5] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <form>
+            <div class="form-group">
+                <label>Choose date</label>
+                <input type="date" name="date" class="form-control"/>
+            </div>
+            <div>
+                <input type="submit" value="Filter" class="btn btn-info"/>
+            </div>
+        </form>
+        <canvas id="searchDate"></canvas>
+    </div>
+</div>
+{% endblock %}
